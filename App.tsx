@@ -17,12 +17,13 @@ import PhotoBooth from './components/PhotoBooth';
 import CloneEffect from './components/CloneEffect';
 import ConceptStudio from './components/ConceptStudio';
 import StudioPhotoshoot from './components/StudioPhotoshoot';
+import ThemeSwitcher from './components/ThemeSwitcher';
 
 const tools = [
     {
         id: 'photoshoot',
         icon: (
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-neutral-300">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-muted-foreground group-hover:text-accent-start transition-colors">
                 <path d="M3 9C3 7.89543 3.89543 7 5 7H6.93009C7.38217 7 7.80365 6.78322 8.09038 6.41039L8.90962 5.21039C9.19635 4.78322 9.61783 4.5 10.0699 4.5H13.9301C14.3822 4.5 14.8036 4.78322 15.0904 5.21039L15.9096 6.41039C16.1964 6.78322 16.6178 7 17.0699 7H19C20.1046 7 21 7.89543 21 9V18C21 19.1046 20.1046 20 19 20H5C3.89543 20 3 19.1046 3 18V9Z" stroke="currentColor" strokeWidth="2"/>
                 <path d="M15 13C15 14.6569 13.6569 16 12 16C10.3431 16 9 14.6569 9 13C9 11.3431 10.3431 10 12 10C13.6569 10 15 11.3431 15 13Z" stroke="currentColor" strokeWidth="2"/>
             </svg>
@@ -33,7 +34,7 @@ const tools = [
     {
         id: 'photoBooth',
         icon: (
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-neutral-300">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-muted-foreground group-hover:text-accent-start transition-colors">
                 <rect x="4" y="4" width="7" height="7" rx="1" stroke="currentColor" strokeWidth="2"/>
                 <rect x="13" y="4" width="7" height="7" rx="1" stroke="currentColor" strokeWidth="2"/>
                 <rect x="4" y="13" width="7" height="7" rx="1" stroke="currentColor" strokeWidth="2"/>
@@ -46,7 +47,7 @@ const tools = [
     {
         id: 'cloneEffect',
         icon: (
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-neutral-300">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-muted-foreground group-hover:text-accent-start transition-colors">
                 <path d="M12 6C13.1046 6 14 5.10457 14 4C14 2.89543 13.1046 2 12 2C10.8954 2 10 2.89543 10 4C10 5.10457 10.8954 6 12 6Z" fill="currentColor"/>
                 <path d="M12 7C10.3431 7 9 8.34315 9 10V15H15V10C15 8.34315 13.6569 7 12 7Z" fill="currentColor"/>
                 <path d="M6 12C7.10457 12 8 11.1046 8 10C8 8.89543 7.10457 8 6 8C4.89543 8 4 8.89543 4 10C4 11.1046 4.89543 12 6 12Z" fill="currentColor"/>
@@ -61,7 +62,7 @@ const tools = [
     {
         id: 'outfitExtractor',
         icon: (
-             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-neutral-300">
+             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-muted-foreground group-hover:text-accent-start transition-colors">
                 <path d="M12 2C11.45 2 11 2.45 11 3V4.58C8.1 5.42 6 7.95 6 11V12.09C4.38 12.55 3.03 13.93 2.56 15.59C2 17.57 3.14 19.44 5 19.93V20C5 20.55 5.45 21 6 21H8C8 22.1 8.9 23 10 23H14C15.1 23 16 22.1 16 21H18C18.55 21 19 20.55 19 20V19.93C20.86 19.44 22 17.57 21.44 15.59C20.97 13.93 19.62 12.55 18 12.09V11C18 7.95 15.9 5.42 13 4.58V3C13 2.45 12.55 2 12 2Z" fill="currentColor"/>
             </svg>
         ),
@@ -71,7 +72,7 @@ const tools = [
     {
         id: 'conceptStudio',
         icon: (
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-neutral-300">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-muted-foreground group-hover:text-accent-start transition-colors">
                 <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="currentColor"/>
             </svg>
         ),
@@ -81,7 +82,7 @@ const tools = [
     {
         id: 'studioPhotoshoot',
         icon: (
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-neutral-300">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-muted-foreground group-hover:text-accent-start transition-colors">
                 <path d="M9 3H7C5.89543 3 5 3.89543 5 5V10C5 11.1046 5.89543 12 7 12H17C18.1046 12 19 11.1046 19 10V5C19 3.89543 18.1046 3 17 3H15" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
                 <path d="M12 12C14.2091 12 16 10.2091 16 8C16 5.79086 14.2091 4 12 4C9.79086 4 8 5.79086 8 8C8 10.2091 9.79086 12 12 12Z" stroke="currentColor" strokeWidth="2"/>
                 <path d="M12 12V21" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
@@ -96,7 +97,7 @@ const tools = [
     {
         id: 'portraitGenerator',
         icon: (
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-neutral-300">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-muted-foreground group-hover:text-accent-start transition-colors">
                 <path d="M19 2H5C3.9 2 3 2.9 3 4V20C3 21.1 3.9 22 5 22H19C20.1 22 21 21.1 21 20V4C21 2.9 20.1 2 19 2ZM9.5 6C10.88 6 12 7.12 12 8.5C12 9.88 10.88 11 9.5 11C8.12 11 7 9.88 7 8.5C7 7.12 8.12 6 9.5 6ZM17 18H7V17C7 15.67 9.67 15 12 15C14.33 15 17 15.67 17 17V18Z" fill="currentColor"/>
             </svg>
         ),
@@ -106,7 +107,7 @@ const tools = [
     {
         id: 'poseAnimator',
         icon: (
-             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-neutral-300">
+             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-muted-foreground group-hover:text-accent-start transition-colors">
                 <circle cx="12" cy="4" r="2" stroke="currentColor" strokeWidth="2"/>
                 <path d="M12 6L12 11" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
                 <path d="M9 13L7 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
@@ -122,7 +123,7 @@ const tools = [
     {
         id: 'inpainter',
         icon: (
-             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-neutral-300">
+             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-muted-foreground group-hover:text-accent-start transition-colors">
                 <path d="M14.06 9.02l.92.92L5.92 19H5v-.92l9.06-9.06M17.66 3c-.25 0-.51.1-.7.29l-1.83 1.83 3.75 3.75 1.83-1.83c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.2-.2-.45-.29-.71-.29zm-3.6 3.19L3 17.25V21h3.75L17.81 9.94l-3.75-3.75z" fill="currentColor"/>
             </svg>
         ),
@@ -132,7 +133,7 @@ const tools = [
     {
         id: 'objectRemover',
         icon: (
-             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-neutral-300">
+             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-muted-foreground group-hover:text-accent-start transition-colors">
                 <path d="M16.24 3.56c-.39-.39-1.02-.39-1.41 0L8 10.41l-1.83 1.83c-.39.39-.39 1.02 0 1.41l2.83 2.83c.39.39 1.02.39 1.41 0L17 9.83l1.83-1.83c.39-.39.39-1.02 0-1.41l-2.59-2.59zM19.31 9.24l-3.54 3.54-4.24-4.24 3.54-3.54 4.24 4.24zM4 21h12v-2H4v2z" fill="currentColor"/>
             </svg>
         ),
@@ -142,7 +143,7 @@ const tools = [
     {
         id: 'backgroundRemover',
         icon: (
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-neutral-300">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-muted-foreground group-hover:text-accent-start transition-colors">
                 <circle cx="12" cy="8" r="3" stroke="currentColor" strokeWidth="2"/>
                 <path d="M17 19C17 16.2386 14.7614 14 12 14C9.23858 14 7 16.2386 7 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
                 <path d="M3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12Z" stroke="currentColor" strokeWidth="2" strokeDasharray="2 2"/>
@@ -212,12 +213,13 @@ function App() {
     }
 
     return (
-        <main className="bg-black text-neutral-200 min-h-screen w-full flex flex-col items-center justify-center p-8 relative overflow-hidden bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-neutral-900 to-black">
-            <div className="absolute top-4 right-4 z-20">
+        <main className="bg-background text-foreground min-h-screen w-full flex flex-col items-center justify-center p-8 relative overflow-hidden">
+            <div className="absolute top-4 right-4 z-20 flex items-center gap-2">
                 <LanguageSwitcher />
+                <ThemeSwitcher />
             </div>
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div className="absolute top-1/2 left-1/2 w-[80vw] h-[80vw] max-w-4xl max-h-4xl -translate-x-1/2 -translate-y-1/2 bg-gradient-to-tr from-neutral-600 to-black opacity-20 rounded-full blur-3xl" />
+                <div className="absolute top-1/2 left-1/2 w-[80vw] h-[80vw] max-w-4xl max-h-4xl -translate-x-1/2 -translate-y-1/2 bg-gradient-to-tr from-accent-start/20 to-accent-end/20 opacity-50 rounded-full blur-3xl" />
             </div>
 
             <motion.div
@@ -226,8 +228,8 @@ function App() {
                 transition={{ duration: 0.8 }}
                 className="z-10 flex flex-col items-center w-full max-w-5xl"
             >
-                <h1 className="text-6xl md:text-7xl font-extrabold text-center bg-clip-text text-transparent bg-gradient-to-br from-white to-neutral-400 tracking-tight">{t('app.title')}</h1>
-                <h2 className="text-2xl md:text-3xl text-neutral-400 mt-4 mb-12 md:mb-16 text-center">{t('app.subtitle')}</h2>
+                <h1 className="text-6xl md:text-7xl font-extrabold text-center bg-clip-text text-transparent bg-gradient-to-br from-primary to-muted-foreground tracking-tight">{t('app.title')}</h1>
+                <h2 className="text-2xl md:text-3xl text-muted-foreground mt-4 mb-12 md:mb-16 text-center">{t('app.subtitle')}</h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
                     {tools.map((tool, index) => (
@@ -236,12 +238,12 @@ function App() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
-                            className="bg-black/20 backdrop-blur-md border border-neutral-800 rounded-2xl p-8 flex flex-col items-start hover:bg-neutral-900/50 hover:border-neutral-700 transition-all duration-300 transform hover:-translate-y-1 group"
+                            className="bg-secondary/30 backdrop-blur-md border border-border rounded-2xl p-8 flex flex-col items-start hover:bg-secondary/60 hover:border-accent-start/50 transition-all duration-300 transform hover:-translate-y-1 group hover:shadow-2xl hover:shadow-accent-end/10"
                         >
-                            <div className="p-3 bg-neutral-800/50 rounded-lg mb-4 border border-neutral-700">{tool.icon}</div>
-                            <h3 className="text-2xl font-bold text-neutral-100 mb-2">{t(tool.titleKey)}</h3>
-                            <p className="text-neutral-300 flex-grow mb-6">{t(tool.descriptionKey)}</p>
-                            <button onClick={() => handleSelectTool(tool.id as ToolId)} className="font-semibold text-neutral-300 mt-auto group-hover:text-white transition-colors duration-300 text-lg">
+                            <div className="p-3 bg-secondary/50 rounded-lg mb-4 border border-border">{tool.icon}</div>
+                            <h3 className="text-2xl font-bold text-foreground mb-2">{t(tool.titleKey)}</h3>
+                            <p className="text-muted-foreground flex-grow mb-6">{t(tool.descriptionKey)}</p>
+                            <button onClick={() => handleSelectTool(tool.id as ToolId)} className="font-semibold text-muted-foreground mt-auto group-hover:text-foreground transition-colors duration-300 text-lg">
                                 {t('app.start')} <span className="inline-block transform group-hover:translate-x-1 transition-transform duration-300">&rarr;</span>
                             </button>
                         </motion.div>
