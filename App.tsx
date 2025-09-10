@@ -21,6 +21,7 @@ import ThemeSwitcher from './components/ThemeSwitcher';
 import IllustrationToFigure from './components/IllustrationToFigure';
 import FaceSwap from './components/FaceSwap';
 import TimeMachine from './components/TimeMachine';
+import HairStyler from './components/HairStyler';
 
 const tools = [
     {
@@ -57,6 +58,19 @@ const tools = [
         ),
         titleKey: 'app.photoBoothTitle',
         descriptionKey: 'app.photoBoothDesc',
+    },
+    {
+        id: 'hairStyler',
+        icon: (
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-muted-foreground group-hover:text-accent-start transition-colors">
+                <path d="M12 13C14.7614 13 17 10.7614 17 8C17 5.23858 14.7614 3 12 3C9.23858 3 7 5.23858 7 8C7 10.7614 9.23858 13 12 13Z" stroke="currentColor" strokeWidth="2"/>
+                <path d="M18 10C19.6569 10 21 8.65685 21 7C21 5.34315 19.6569 4 18 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                <path d="M6 10C4.34315 10 3 8.65685 3 7C3 5.34315 4.34315 4 6 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                <path d="M5 13V15.5C5 18.5 8 21 12 21C16 21 19 18.5 19 15.5V13" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+            </svg>
+        ),
+        titleKey: 'app.hairStylerTitle',
+        descriptionKey: 'app.hairStylerDesc',
     },
     {
         id: 'cloneEffect',
@@ -194,7 +208,7 @@ const tools = [
     }
 ];
 
-type ToolId = 'selection' | 'photoshoot' | 'outfitExtractor' | 'poseAnimator' | 'inpainter' | 'objectRemover' | 'backgroundRemover' | 'portraitGenerator' | 'photoBooth' | 'cloneEffect' | 'conceptStudio' | 'studioPhotoshoot' | 'illustrationToFigure' | 'faceSwap' | 'timeMachine';
+type ToolId = 'selection' | 'photoshoot' | 'outfitExtractor' | 'poseAnimator' | 'inpainter' | 'objectRemover' | 'backgroundRemover' | 'portraitGenerator' | 'photoBooth' | 'cloneEffect' | 'conceptStudio' | 'studioPhotoshoot' | 'illustrationToFigure' | 'faceSwap' | 'timeMachine' | 'hairStyler';
 
 function App() {
     const [activeTool, setActiveTool] = useState<ToolId>('selection');
@@ -218,6 +232,10 @@ function App() {
 
     if (activeTool === 'photoBooth') {
         return <PhotoBooth onBack={handleBack} />;
+    }
+
+    if (activeTool === 'hairStyler') {
+        return <HairStyler onBack={handleBack} />;
     }
 
     if (activeTool === 'cloneEffect') {
