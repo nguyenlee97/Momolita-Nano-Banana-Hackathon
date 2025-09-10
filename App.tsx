@@ -18,6 +18,9 @@ import CloneEffect from './components/CloneEffect';
 import ConceptStudio from './components/ConceptStudio';
 import StudioPhotoshoot from './components/StudioPhotoshoot';
 import ThemeSwitcher from './components/ThemeSwitcher';
+import IllustrationToFigure from './components/IllustrationToFigure';
+import FaceSwap from './components/FaceSwap';
+import TimeMachine from './components/TimeMachine';
 
 const tools = [
     {
@@ -30,6 +33,17 @@ const tools = [
         ),
         titleKey: 'app.photoshootTitle',
         descriptionKey: 'app.photoshootDesc',
+    },
+    {
+        id: 'timeMachine',
+        icon: (
+             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-muted-foreground group-hover:text-accent-start transition-colors">
+                <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20Z" fill="currentColor"/>
+                <path d="M12.5 7H11V13L16.25 16.15L17 14.92L12.5 12.25V7Z" fill="currentColor"/>
+            </svg>
+        ),
+        titleKey: 'app.timeMachineTitle',
+        descriptionKey: 'app.timeMachineDesc',
     },
     {
         id: 'photoBooth',
@@ -68,6 +82,32 @@ const tools = [
         ),
         titleKey: 'app.outfitExtractorTitle',
         descriptionKey: 'app.outfitExtractorDesc',
+    },
+    // {
+    //     id: 'faceSwap',
+    //     icon: (
+    //          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-muted-foreground group-hover:text-accent-start transition-colors">
+    //             <path d="M15 9.85714C15 12.1429 12.7614 14 10 14C7.23858 14 5 12.1429 5 9.85714C5 7.57143 7.23858 5.71429 10 5.71429C12.7614 5.71429 15 7.57143 15 9.85714Z" stroke="currentColor" strokeWidth="2"/>
+    //             <path d="M19 14.1429C19 16.4286 16.7614 18.2857 14 18.2857C11.2386 18.2857 9 16.4286 9 14.1429C9 11.8571 11.2386 10 14 10C16.7614 10 19 11.8571 19 14.1429Z" stroke="currentColor" strokeWidth="2" strokeDasharray="2 2"/>
+    //             <path d="M8 10.5C8 10.5 8.5 11.5 10 11.5C11.5 11.5 12 10.5 12 10.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+    //             <path d="M12 15C12 15 12.5 16 14 16C15.5 16 16 15 16 15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeDasharray="2 2"/>
+    //         </svg>
+    //     ),
+    //     titleKey: 'app.faceSwapTitle',
+    //     descriptionKey: 'app.faceSwapDesc',
+    // },
+    {
+        id: 'illustrationToFigure',
+        icon: (
+             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-muted-foreground group-hover:text-accent-start transition-colors">
+                <path d="M3 8L12 3L21 8V16L12 21L3 16V8Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M12 12L21 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M12 12V21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M12 12L3 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+        ),
+        titleKey: 'app.illustrationToFigureTitle',
+        descriptionKey: 'app.illustrationToFigureDesc',
     },
     {
         id: 'conceptStudio',
@@ -154,7 +194,7 @@ const tools = [
     }
 ];
 
-type ToolId = 'selection' | 'photoshoot' | 'outfitExtractor' | 'poseAnimator' | 'inpainter' | 'objectRemover' | 'backgroundRemover' | 'portraitGenerator' | 'photoBooth' | 'cloneEffect' | 'conceptStudio' | 'studioPhotoshoot';
+type ToolId = 'selection' | 'photoshoot' | 'outfitExtractor' | 'poseAnimator' | 'inpainter' | 'objectRemover' | 'backgroundRemover' | 'portraitGenerator' | 'photoBooth' | 'cloneEffect' | 'conceptStudio' | 'studioPhotoshoot' | 'illustrationToFigure' | 'faceSwap' | 'timeMachine';
 
 function App() {
     const [activeTool, setActiveTool] = useState<ToolId>('selection');
@@ -172,6 +212,10 @@ function App() {
         return <Photoshoot onBack={handleBack} />;
     }
     
+    if (activeTool === 'timeMachine') {
+        return <TimeMachine onBack={handleBack} />;
+    }
+
     if (activeTool === 'photoBooth') {
         return <PhotoBooth onBack={handleBack} />;
     }
@@ -182,6 +226,14 @@ function App() {
 
     if (activeTool === 'outfitExtractor') {
         return <OutfitExtractor onBack={handleBack} />;
+    }
+
+    // if (activeTool === 'faceSwap') {
+    //     return <FaceSwap onBack={handleBack} />;
+    // }
+
+    if (activeTool === 'illustrationToFigure') {
+        return <IllustrationToFigure onBack={handleBack} />;
     }
 
     if (activeTool === 'conceptStudio') {
@@ -228,7 +280,7 @@ function App() {
                 transition={{ duration: 0.8 }}
                 className="z-10 flex flex-col items-center w-full max-w-5xl"
             >
-                <h1 className="text-6xl md:text-7xl font-extrabold text-center bg-clip-text text-transparent bg-gradient-to-br from-primary to-muted-foreground tracking-tight">{t('app.title')}</h1>
+                <h1 className="font-title text-6xl md:text-7xl font-extrabold text-center bg-clip-text text-transparent bg-gradient-to-br from-primary to-muted-foreground tracking-tight pb-2">{t('app.title')}</h1>
                 <h2 className="text-2xl md:text-3xl text-muted-foreground mt-4 mb-12 md:mb-16 text-center">{t('app.subtitle')}</h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
