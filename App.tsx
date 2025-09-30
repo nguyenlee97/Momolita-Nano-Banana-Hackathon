@@ -13,6 +13,7 @@ import LanguageSwitcher from './components/LanguageSwitcher';
 import ObjectRemover from './components/ObjectRemover';
 import BackgroundRemover from './components/BackgroundRemover';
 import PortraitGenerator from './components/PortraitGenerator';
+import ProfilePictureGenerator from './components/ProfilePictureGenerator';
 import PhotoBooth from './components/PhotoBooth';
 import CloneEffect from './components/CloneEffect';
 import ConceptStudio from './components/ConceptStudio';
@@ -159,6 +160,16 @@ const tools = [
         descriptionKey: 'app.portraitGeneratorDesc',
     },
     {
+        id: 'profilePictureGenerator',
+        icon: (
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-muted-foreground group-hover:text-accent-start transition-colors">
+                <path d="M12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12ZM12 14C9.33 14 4 15.34 4 18V20H20V18C20 15.34 14.67 14 12 14Z" fill="currentColor"/>
+            </svg>
+        ),
+        titleKey: 'app.profilePictureGeneratorTitle',
+        descriptionKey: 'app.profilePictureGeneratorDesc',
+    },
+    {
         id: 'poseAnimator',
         icon: (
              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-muted-foreground group-hover:text-accent-start transition-colors">
@@ -208,7 +219,7 @@ const tools = [
     }
 ];
 
-type ToolId = 'selection' | 'photoshoot' | 'outfitExtractor' | 'poseAnimator' | 'inpainter' | 'objectRemover' | 'backgroundRemover' | 'portraitGenerator' | 'photoBooth' | 'cloneEffect' | 'conceptStudio' | 'studioPhotoshoot' | 'illustrationToFigure' | 'faceSwap' | 'timeMachine' | 'hairStyler';
+type ToolId = 'selection' | 'photoshoot' | 'outfitExtractor' | 'poseAnimator' | 'inpainter' | 'objectRemover' | 'backgroundRemover' | 'portraitGenerator' | 'profilePictureGenerator' | 'photoBooth' | 'cloneEffect' | 'conceptStudio' | 'studioPhotoshoot' | 'illustrationToFigure' | 'faceSwap' | 'timeMachine' | 'hairStyler';
 
 function App() {
     const [activeTool, setActiveTool] = useState<ToolId>('selection');
@@ -264,6 +275,10 @@ function App() {
 
     if (activeTool === 'portraitGenerator') {
         return <PortraitGenerator onBack={handleBack} />;
+    }
+    
+    if (activeTool === 'profilePictureGenerator') {
+        return <ProfilePictureGenerator onBack={handleBack} />;
     }
     
     if (activeTool === 'poseAnimator') {
